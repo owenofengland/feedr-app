@@ -1,6 +1,6 @@
 import React from 'react';
 import {PullToRefresh, PullDownContent, ReleaseContent, RefreshContent} from 'react-js-pull-to-refresh';
-import client from './utils/twitterApi.js';
+import axios from 'axios';
 import secrets from './secrets.js';
 import Tweet from './tweets/Tweet.js';
 
@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       tweets:[],
+      requestUrl: "",
       errorMessage: "",
       errorCode: 0
     }
@@ -31,23 +32,24 @@ class App extends React.Component {
   getTweets() {
     let tweetParams = secrets.usernames.twitter;
     let freshTweets = [];
-    client.get('statuses/home_timeline', tweetParams, (error, tweets, response) => {
-      if(!error) {
-        console.log('tweets loaded')
+    const url = `http://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/home/${tweetParams}`;
+    axios.get(url)
+      .then(res => {
+        const tweets = res.data;
         tweets.forEach(tweet => {
-          freshTweets.push(tweet)
-        })
-      }
-      else {
+          freshTweets.push(tweet);
+        });
         this.setState({
-          errorMessage: error.message,
-          errorCode: error.code
+          tweets: freshTweets, ...this.state.tweets
         })
-      }
-    });
-    this.setState({
-      tweets:freshTweets, ...this.state.tweets
-    });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          errorMessage: err.message,
+          errorCode: err.code
+        });
+      });
   }
 
   render() {
@@ -59,20 +61,26 @@ class App extends React.Component {
         pullDownThreshold={2}
         onRefresh={this.handleRefresh}
         triggerHeight={50}
-        backgroundColor='black'>
+        backgroundColor='white'>
         <div className="main-body">
           {[...this.state.tweets].map((tweet, index) => {
             let name = `${tweet.user.name}`
             let handle = `${tweet.user.screen_name}`
             let text = `${tweet.text}`;
             let image = `${tweet.user.profile_image_url}`;
+            let likes = `${tweet.favorite_count}`;
+            let retweets = `${tweet.retweet_count}`;
+            let url = `https://twitter.com/${handle}/status/${tweet.id_str}`;
             return(
               <Tweet 
                 key={index}
                 name={name}
                 handle={handle}
                 text={text}
-                iamge={image}/>
+                image={image}
+                likes={likes}
+                retweets={retweets}
+                url={url}/>
             )
           })}
         </div>
