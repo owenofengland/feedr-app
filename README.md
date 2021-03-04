@@ -17,45 +17,17 @@ Application that centralizes social media feeds from various websites/apps. Clie
 
 * Need to design UI - Use scratch or photoshop or adobe XD and export to CSS with tool like Zeplin or Avocode
     * Adobe XD used to design tweet sample, export to CSS and config
-* Dockerize, run one script to get both API and client running 
 
 ## How To Configure secrets.js
 
 * `secrets.js` is necessary for this project to run, contains API keys and other sensitive information, view sampleSecrets.js for correct structure and be sure to replace the values with appropriate information
 
-## Available Scripts
+## Docker Instructions/Running Instructions
+*Requires installation of both docker and docker-compose*
 
-In the project directory, you can run:
+Option 1: Build and compose manually
+* Build docker images from docker files in `/api` and `/client`
+* `docker-compose -f docker-compose.yml up` in root directory
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Option 2: Using `run.sh`
+* Simply execute `./run.sh` which includes build statements for both parts of the project and the compose script

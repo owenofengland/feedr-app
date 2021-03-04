@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  feedr-frontend:
+    image: feedr:latest
+    environment:
+      PORT: 3000
+    ports:
+      - 3000:3000
+  feedr-backend:
+    image: feedr-api:latest
+    environment:
+      PORT: 5000
+    ports:
+      - 5000:5000
