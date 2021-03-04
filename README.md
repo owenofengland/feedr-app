@@ -1,6 +1,6 @@
 # Feedr App
 
-Application that centralizes social media feeds from various websites/apps. Built with React using various social media network developer APIs.
+Application that centralizes social media feeds from various websites/apps. Client frontend built with React and Axios for requests. API backend built with Node & Express to proxy requests to various social media APIs for frontend.
 
 ## Currently Supports
 
@@ -16,7 +16,8 @@ Application that centralizes social media feeds from various websites/apps. Buil
 ## Current Work TO DO
 
 * Need to design UI - Use scratch or photoshop or adobe XD and export to CSS with tool like Zeplin or Avocode
-* Debug twitter api issues - Solution: set up a proxy server middleware for requests
+    * Adobe XD used to design tweet sample, export to CSS and config
+* Dockerize, run one script to get both API and client running 
 
 ## Available Scripts
 
