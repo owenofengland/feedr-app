@@ -31,3 +31,5 @@ Option 1: Build and compose manually
 
 Option 2: Using `run.sh`
 * Simply execute `./run.sh` which includes build statements for both parts of the project and the compose script
+
+After either completes successfully, go to localhost:3000
