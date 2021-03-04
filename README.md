@@ -19,6 +19,10 @@ Application that centralizes social media feeds from various websites/apps. Clie
     * Adobe XD used to design tweet sample, export to CSS and config
 * Dockerize, run one script to get both API and client running 
 
+## How To Configure secrets.js
+
+* `secrets.js` is necessary for this project to run, contains API keys and other sensitive information, view sampleSecrets.js for correct structure and be sure to replace the values with appropriate information
+
 ## Available Scripts
 
 In the project directory, you can run:
