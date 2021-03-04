@@ -16,7 +16,7 @@ Application that centralizes social media feeds from various websites/apps. Buil
 ## Current Work TO DO
 
 * Need to design UI - Use scratch or photoshop or adobe XD and export to CSS with tool like Zeplin or Avocode
-* Debug twitter api issues - CORS
+* Debug twitter api issues - Solution: set up a proxy server middleware for requests
 
 ## Available Scripts
 
