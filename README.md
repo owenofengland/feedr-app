@@ -15,8 +15,8 @@ Application that centralizes social media feeds from various websites/apps. Clie
 
 ## Current Work TO DO
 
-* Need to design UI - Use scratch or photoshop or adobe XD and export to CSS with tool like Zeplin or Avocode
-    * Adobe XD used to design tweet sample, export to CSS and config
+* Start integrating another social media
+    * Start with proxy API endpoint development
 
 ## How To Configure secrets.js
 
