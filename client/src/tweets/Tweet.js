@@ -7,7 +7,7 @@ import TweetHandle from './tweetComponents/TweetHandle.js';
 import TweetLikes from './tweetComponents/TweetLikes.js';
 import TweetRetweets from './tweetComponents/TweetRetweets.js';
 import TweetURL from './tweetComponents/TweetURL.js';
-
+import TweetTime from './tweetComponents/TweetTime.js';
 
 const Tweet = (props) => {
 
@@ -25,6 +25,7 @@ const Tweet = (props) => {
                     <div className="inner-body">
                         <TweetName name={props.name}/>
                         <TweetHandle handle={props.handle}/>
+                        <TweetTime date={props.date}/>
                     </div>
                     <TweetText text={props.text}/>
                 </div>

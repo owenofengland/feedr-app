@@ -4,6 +4,11 @@ import axios from 'axios';
 import secrets from './secrets.js';
 import Tweet from './tweets/Tweet.js';
 
+const cleanTime = (utcString) => {
+  const utcDate = new Date(utcString);
+  const localDate = `${utcDate.getMonth} ${utcDate.getDate} ${utcDate.getHours}:${utcDate.getMinutes}`;
+  return localDate;
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -108,7 +113,8 @@ class App extends React.Component {
             let image = `${tweet.user.profile_image_url}`;
             let likes = `${tweet.favorite_count}`;
             let retweets = `${tweet.retweet_count}`;
-            let id = tweet.id_str
+            let id = tweet.id_str;
+            let date = cleanTime(tweet.created_at);
             let url = `https://twitter.com/${handle}/status/${tweet.id_str}`;
             return(
               <Tweet
@@ -120,6 +126,7 @@ class App extends React.Component {
                 image={image}
                 likes={likes}
                 retweets={retweets}
+                date={date}
                 url={url}
                 likeTweet={this.likeTweet}
                 retweetTweet={this.retweetTweet}/>
