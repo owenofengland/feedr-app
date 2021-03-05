@@ -2,7 +2,7 @@ import React from 'react';
 
 const TweetHandle = (props) => {
     return (
-        <div className="handle">
+        <div className="tweet-handle">
             @{props.handle}
         </div>
     )

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRetweet } from '@fortawesome/free-solid-svg-icons';
 
 const TweetRetweets = (props) => {
 
@@ -13,16 +15,16 @@ const TweetRetweets = (props) => {
     };
     
     return(
-        <button 
+        <div 
             className="tweet-retweets"
-            style={{backgroundColor:color}}
+            style={{color:color}}
             onClick={() => {
                 props.onClick()
                 changeColor()
                 }
             }>
-            {props.retweets} Retweets
-        </button>
+            <FontAwesomeIcon icon={faRetweet} fixedWidth/> {props.retweets}
+        </div>
     );
 };
 

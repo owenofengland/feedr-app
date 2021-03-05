@@ -3,6 +3,7 @@ import {PullToRefresh, PullDownContent, ReleaseContent, RefreshContent} from 're
 import axios from 'axios';
 import secrets from './secrets.js';
 import Tweet from './tweets/Tweet.js';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class App extends React.Component {
         pullDownThreshold={2}
         onRefresh={this.handleRefresh}
         triggerHeight={50}
-        backgroundColor='white'>
+        backgroundColor='black'>
         <div className="main-body">
           {[...this.state.tweets].map((tweet, index) => {
             let name = `${tweet.user.name}`

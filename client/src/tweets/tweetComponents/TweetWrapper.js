@@ -2,7 +2,7 @@ import React from 'react';
 
 const TweetWrapper = (props) => {
     return(
-        <div className="tweet-body">
+        <div className="tweet-wrapper">
             {props.children}
         </div>
     )

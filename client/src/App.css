@@ -1,0 +1,146 @@
+.main-body {
+    display: flex;
+    flex-direction: column;
+    background-color: #141d26;
+    min-height: 80rem;
+}
+
+.left-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-body {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1%;
+}
+
+.bottom-body {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+}
+
+.tweet-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 50%;
+    margin-left: 20%;
+    margin-bottom: 1%;
+    background: #243447 0% 0% no-repeat padding-box;
+    border: 3px solid #AAB8C2;
+    border-radius: 0px 67px 67px 67px;
+    opacity: 1;
+}
+
+.tweet-url {
+    display: flex;
+    flex-direction: column;
+}
+
+.tweet-url:hover {
+    color: #1780C1;
+}
+
+.tweet-image {
+    background: #AAB8C2 0% 0% no-repeat padding-box;
+    border-radius: 50% 50% 50% 50%;
+    border: 3px solid #657786;
+    opacity: 1;
+}
+
+.tweet-wrapper:hover {
+    background: #1c2938 0% 0% no-repeat padding-box;
+    border: 3px solid #505f6b;
+    border-radius: 0px 67px 67px 67px;
+    opacity: 1;
+}
+
+.tweet-name {
+    display: flex;
+    flex-direction: row;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: white;
+    margin-left: .75%;
+}
+
+.tweet-handle {
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: #657786;
+    opacity: 1;
+    margin-left: .75%;
+}
+.tweet-text {
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: white;
+    margin-left: .75%;
+}
+
+.tweet-time {
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: #657786;
+    opacity: 1;
+    margin-left: .75%;
+}
+
+.tweet-retweets {
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: #657786;
+    opacity: 1;
+    margin-right: 2%;
+}
+
+
+.tweet-likes {
+    display: flex;
+    display: row;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.04px;
+    color: #657786;
+    opacity: 1;
+    margin-right: 2%;
+}

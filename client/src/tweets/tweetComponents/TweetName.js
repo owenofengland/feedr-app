@@ -2,7 +2,7 @@ import React from 'react';
 
 const TweetName = (props) => {
     return(
-        <div className="name">
+        <div className="tweet-name">
             {props.name}
         </div>
     )

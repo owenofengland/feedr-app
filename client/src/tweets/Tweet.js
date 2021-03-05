@@ -17,7 +17,7 @@ const Tweet = (props) => {
     return(
         <TweetWrapper>
             <div className="inner-body">
-                <span>
+                <span className="left-body">
                     <TweetURL url={props.url}/>
                     <TweetImage image={props.image}/>
                 </span>
@@ -28,8 +28,7 @@ const Tweet = (props) => {
                         <TweetTime date={props.date}/>
                     </div>
                     <TweetText text={props.text}/>
-                </div>
-                <span>
+                    <span className="bottom-body">
                     <TweetLikes 
                         likes={props.likes} 
                         onClick={() => {
@@ -47,6 +46,7 @@ const Tweet = (props) => {
                         }
                     />             
                 </span>
+                </div>
             </div>
         </TweetWrapper>
     )

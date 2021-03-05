@@ -1,4 +1,7 @@
+import { faRProject } from '@fortawesome/free-brands-svg-icons';
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const TweetLikes = (props) => {
 
@@ -13,16 +16,16 @@ const TweetLikes = (props) => {
     };
 
     return(
-        <button 
+        <div 
             className="tweet-likes"
-            style={{backgroundColor:color}}
+            style={{color:color}}
             onClick={() => {
                 props.onClick()
                 changeColor()
                 }
             }>
-            {props.likes} Likes
-        </button>
+            <FontAwesomeIcon icon={faHeart} fixedWidth/>{props.likes}
+        </div>
     );
 };
 
