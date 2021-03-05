@@ -16,6 +16,7 @@ class App extends React.Component {
     }
     this.handleRefresh = this.handleRefresh.bind(this);
     this.getTweets = this.getTweets.bind(this);
+    this.likeTweet = this.likeTweet.bind(this);
   }
 
   handleRefresh() {
@@ -52,6 +53,19 @@ class App extends React.Component {
       });
   }
 
+  likeTweet(tweetId) {
+    const url = `http://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/like/${tweetId}`;
+    axios.post(url)
+      .then(res => {
+        console.log('success');
+        console.log(res);
+      })
+      .catch(err => {
+        console.log('failure');
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <PullToRefresh
@@ -70,9 +84,11 @@ class App extends React.Component {
             let image = `${tweet.user.profile_image_url}`;
             let likes = `${tweet.favorite_count}`;
             let retweets = `${tweet.retweet_count}`;
+            let id = tweet.id_str
             let url = `https://twitter.com/${handle}/status/${tweet.id_str}`;
             return(
-              <Tweet 
+              <Tweet
+                id={id} 
                 key={index}
                 name={name}
                 handle={handle}
@@ -80,7 +96,8 @@ class App extends React.Component {
                 image={image}
                 likes={likes}
                 retweets={retweets}
-                url={url}/>
+                url={url}
+                likeTweet={this.likeTweet}/>
             )
           })}
         </div>

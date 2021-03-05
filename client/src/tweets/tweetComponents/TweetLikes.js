@@ -2,9 +2,9 @@ import React from 'react';
 
 const TweetLikes = (props) => {
     return(
-        <div className="tweet-likes">
+        <button className="tweet-likes" onClick={() => props.onClick()}>
             {props.likes}
-        </div>
+        </button>
     )
 }
 

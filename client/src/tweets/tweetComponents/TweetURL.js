@@ -3,7 +3,7 @@ import React from 'react';
 const TweetURL = (props) => {
     return(
         <div className="tweet-url">
-            {props.url}
+            <a href={props.url}>Link to Tweet</a>
         </div>
     )
 }

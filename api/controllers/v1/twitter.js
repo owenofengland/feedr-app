@@ -25,12 +25,14 @@ exports.getUsertweets = (req, res) => {
 };
 
 exports.likeTweet = (req, res) => {
+    console.log(req.params);
     client.post("favorites/create", req.params, (error, tweet, response) => {
         if (!error) {
             res.status(200);
             res.json(response);
         } else {
-            res.status(400);
+            console.log(response);
+            res.status(300);
             res.json(error);
         }
     })

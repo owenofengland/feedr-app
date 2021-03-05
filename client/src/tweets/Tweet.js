@@ -25,7 +25,7 @@ const Tweet = (props) => {
                     <TweetText text={props.text}/>
                 </div>
                 <span>
-                    <TweetLikes likes={props.likes}/>
+                    <TweetLikes likes={props.likes} onClick={() => props.likeTweet(props.id)}/>
                     <TweetRetweets retweets={props.retweets}/>             
                 </span>
             </div>
