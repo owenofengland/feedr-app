@@ -7,3 +7,5 @@ const TweetTime = (props) => {
         </div>
     )
 }
+
+export default TweetTime;

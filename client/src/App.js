@@ -4,12 +4,6 @@ import axios from 'axios';
 import secrets from './secrets.js';
 import Tweet from './tweets/Tweet.js';
 
-const cleanTime = (utcString) => {
-  const utcDate = new Date(utcString);
-  const localDate = `${utcDate.getMonth} ${utcDate.getDate} ${utcDate.getHours}:${utcDate.getMinutes}`;
-  return localDate;
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +17,7 @@ class App extends React.Component {
     this.getTweets = this.getTweets.bind(this);
     this.likeTweet = this.likeTweet.bind(this);
     this.retweetTweet = this.retweetTweet.bind(this);
+    this.cleanTime = this.cleanTime.bind(this);
   }
 
   handleRefresh() {
@@ -57,6 +52,13 @@ class App extends React.Component {
           errorCode: err.code
         });
       });
+  }
+
+  cleanTime(utcString) {
+    const utcDate = new Date(utcString);
+    const numToMonthMap = new Map([[1,"Jan"], [2,"Feb"], [3,"Mar"], [4,"Apr"], [5,"May"], [6,"Jun"], [7,"Jul"], [8,"Aug"], [9,"Sep"], [10,"Oct"], [11,"Nov"], [12, "Dec"]]);
+    const localDate = `${numToMonthMap.get(utcDate.getMonth())} ${utcDate.getDate().toString()} ${utcDate.getHours().toString()}:${utcDate.getMinutes().toString()}`;
+    return localDate;
   }
 
   likeTweet(tweetId, liked) {
@@ -114,7 +116,7 @@ class App extends React.Component {
             let likes = `${tweet.favorite_count}`;
             let retweets = `${tweet.retweet_count}`;
             let id = tweet.id_str;
-            let date = cleanTime(tweet.created_at);
+            let date = this.cleanTime(tweet.created_at);
             let url = `https://twitter.com/${handle}/status/${tweet.id_str}`;
             return(
               <Tweet
