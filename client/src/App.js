@@ -17,6 +17,7 @@ class App extends React.Component {
     this.handleRefresh = this.handleRefresh.bind(this);
     this.getTweets = this.getTweets.bind(this);
     this.likeTweet = this.likeTweet.bind(this);
+    this.retweetTweet = this.retweetTweet.bind(this);
   }
 
   handleRefresh() {
@@ -53,8 +54,31 @@ class App extends React.Component {
       });
   }
 
-  likeTweet(tweetId) {
-    const url = `http://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/like/${tweetId}`;
+  likeTweet(tweetId, liked) {
+    let url;
+    if (!liked) {
+      url = `http://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/like/${tweetId}`;
+    } else {
+      url = `http://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/unlike/${tweetId}`;
+    }
+    axios.post(url)
+      .then(res => {
+        console.log('success');
+        console.log(res);
+      })
+      .catch(err => {
+        console.log('failure');
+        console.log(err);
+      });
+  }
+
+  retweetTweet(tweetId, retweeted) {
+    let url;
+    if (!retweeted) {
+      url = `https://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/retweet/${tweetId}`;
+    } else {
+      url = `https://${secrets.api.hostname}:${secrets.api.port}/v1/twitter/unretweet/${tweetId}`;
+    }
     axios.post(url)
       .then(res => {
         console.log('success');
@@ -97,7 +121,8 @@ class App extends React.Component {
                 likes={likes}
                 retweets={retweets}
                 url={url}
-                likeTweet={this.likeTweet}/>
+                likeTweet={this.likeTweet}
+                retweetTweet={this.retweetTweet}/>
             )
           })}
         </div>

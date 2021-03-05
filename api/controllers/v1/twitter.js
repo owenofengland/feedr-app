@@ -25,14 +25,48 @@ exports.getUsertweets = (req, res) => {
 };
 
 exports.likeTweet = (req, res) => {
-    console.log(req.params);
     client.post("favorites/create", req.params, (error, tweet, response) => {
         if (!error) {
             res.status(200);
             res.json(response);
         } else {
-            console.log(response);
-            res.status(300);
+            res.status(400);
+            res.json(error);
+        }
+    })
+}
+
+exports.deleteLike = (req, res) => {
+    client.post("favorites/destroy", req.params, (error, tweet, response) => {
+        if (!error) {
+            res.status(200);
+            res.json(response);
+        } else {
+            res.status(400);
+            res.json(error);
+        }
+    })
+}
+
+exports.retweetTweet = (req, res) => {
+    client.post("statuses/retweet", req.params, (error, tweet, response) => {
+        if(!error) {
+            res.status(200);
+            res.json(response);
+        } else {
+            res.status(400);
+            res.json(error);
+        }
+    })
+}
+
+exports.removeRetweet = (req, res) => {
+    client.post("statuses/unretweet", req.params, (error, tweet, response) => {
+        if (!error) {
+            res.status(200);
+            res.json(response);
+        } else {
+            res.status(400);
             res.json(error);
         }
     })

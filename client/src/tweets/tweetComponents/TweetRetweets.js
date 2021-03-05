@@ -2,9 +2,9 @@ import React from 'react';
 
 const TweetRetweets = (props) => {
     return(
-        <div className="tweet-retweets">
-            {props.retweets}
-        </div>
+        <button className="tweet-retweets" onClick={() => props.onClick()}>
+            {props.retweets} Retweets
+        </button>
     )
 }
 

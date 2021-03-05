@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TweetWrapper from './tweetComponents/TweetWrapper.js';
 import TweetText from './tweetComponents/TweetText.js';
 import TweetName from './tweetComponents/TweetName.js';
@@ -10,6 +10,10 @@ import TweetURL from './tweetComponents/TweetURL.js';
 
 
 const Tweet = (props) => {
+
+    const [liked, setLiked] = useState(false);
+    const [retweeted, setRetweeted] = useState(false);
+
     return(
         <TweetWrapper>
             <div className="inner-body">
@@ -25,8 +29,22 @@ const Tweet = (props) => {
                     <TweetText text={props.text}/>
                 </div>
                 <span>
-                    <TweetLikes likes={props.likes} onClick={() => props.likeTweet(props.id)}/>
-                    <TweetRetweets retweets={props.retweets}/>             
+                    <TweetLikes 
+                        likes={props.likes} 
+                        onClick={() => {
+                            props.likeTweet(props.id, liked);
+                            setLiked(!liked);
+                            }
+                        }
+                    />
+                    <TweetRetweets 
+                        retweets={props.retweets} 
+                        onClick={() => {
+                            props.retweetTweet(props.id, retweeted);
+                            setRetweeted(!retweeted);
+                            }
+                        }
+                    />             
                 </span>
             </div>
         </TweetWrapper>
